@@ -66,6 +66,23 @@ export default function TerminalPortfolio(props) {
     return () => clearInterval(interval);
   }, []);
 
+  const customWelcomeMessage = [
+    <div style={{ color: '#ff0000', fontWeight: 'bold' }} key='ascii-art'>
+      {`██╗      █████╗ ███████╗██╗   ██╗    ██████╗  ██████╗ ██╗███████╗
+██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔══██╗██╔═══██╗██║╚══███╔╝
+██║     ███████║  ███╔╝  ╚████╔╝     ██████╔╝██║   ██║██║  ███╔╝ 
+██║     ██╔══██║ ███╔╝    ╚██╔╝      ██╔══██╗██║   ██║██║ ███╔╝  
+███████╗██║  ██║███████╗   ██║       ██████╔╝╚██████╔╝██║███████╗
+╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝  ╚═════╝ ╚═╝╚══════╝`}
+    </div>,
+    <div className=' text-primary mt-5' key='welcome-text'>
+      Welcome to {name}'s Terminal Portfolio 🚀
+    </div>,
+    <div className='text-warning' key='help-text'>
+      Gõ "help" để xem các lệnh có sẵn!
+    </div>,
+  ];
+
   return (
     <div className='max-w-4xl mx-auto'>
       <div className='rounded-lg shadow-lg flex flex-col mt-10 leading-snug transition-all duration-300'>
@@ -74,33 +91,28 @@ export default function TerminalPortfolio(props) {
           <Terminal
             ref={terminalRef}
             commands={commands}
-            welcomeMessage={[
-              `██╗      █████╗ ███████╗██╗   ██╗    ██████╗  ██████╗ ██╗███████╗
-██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔══██╗██╔═══██╗██║╚══███╔╝
-██║     ███████║  ███╔╝  ╚████╔╝     ██████╔╝██║   ██║██║  ███╔╝ 
-██║     ██╔══██║ ███╔╝    ╚██╔╝      ██╔══██╗██║   ██║██║ ███╔╝  
-███████╗██║  ██║███████╗   ██║       ██████╔╝╚██████╔╝██║███████╗
-╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝  ╚═════╝ ╚═╝╚══════╝`,
-              `Welcome to ${name}'s Terminal Portfolio 🚀`,
-              'Gõ "help" để xem các lệnh có sẵn!',
-            ]}
+            welcomeMessage={customWelcomeMessage}
             promptLabel='user@portfolio:~$'
             dangerMode={true}
             noDefaults={true}
-            className='font-mono h-full min-h-[300px] max-h-[500px]'
+            className='font-mono h-full min-h-[300px] max-h-[500px] pt-12 '
             contentStyle={{
-              color: '#ffb86c',
+              color: '#e9eae5',
               fontWeight: 'normal',
               paddingLeft: null,
               whiteSpace: 'pre-wrap',
               fontFamily: 'monospace',
-              fontSize: '14px',
-              lineHeight: '1.4',
+              fontSize: '1.25em',
+              lineHeight: '1.6',
             }}
             style={{
               minHeight: `${MIN_HEIGHT}px`,
               maxHeight: `${MAX_HEIGHT}px`,
               overflowY: overflow,
+              backgroundColor: '#262833',
+            }}
+            inputStyle={{
+              height: '30px',
             }}
             inputTextClassName='focus:outline-none bg-transparent'
           />

@@ -12,12 +12,12 @@ const createCommands = ({
       usage: 'about',
       fn: () => `Xin chào! Tôi là ${name} - ${role}.`,
     },
-    skills: {
+    ski: {
       description: 'Xem kỹ năng lập trình',
       usage: 'skills',
       fn: () => skills.map((s) => `- ${s}`).join('\n'),
     },
-    projects: {
+    pro: {
       description: 'Xem danh sách dự án',
       usage: 'projects',
       fn: () => {
@@ -49,7 +49,7 @@ const createCommands = ({
         return projects.map((p, i) => `${i + 1}. ${p}`).join('\n');
       },
     },
-    contact: {
+    con: {
       description: 'Thông tin liên hệ',
       usage: 'contact',
       fn: () =>
