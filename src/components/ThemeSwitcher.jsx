@@ -5,6 +5,7 @@ const themes = ['nord', 'monokai', 'dracula'];
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState('dracula');
   const [showSelector, setShowSelector] = useState(false);
+  const [isThemeLoaded, setIsThemeLoaded] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export default function ThemeSwitcher() {
       setTheme(storedTheme);
       document.documentElement.setAttribute('data-theme', storedTheme);
     }
+    setIsThemeLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -36,6 +38,8 @@ export default function ThemeSwitcher() {
   const handleToggleSelector = () => {
     setShowSelector((prev) => !prev);
   };
+
+  if (!isThemeLoaded) return null;
 
   return (
     <div className='fixed bottom-5 right-5 z-10' ref={containerRef}>
