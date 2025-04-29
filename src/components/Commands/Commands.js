@@ -23,7 +23,7 @@ const createCommands = ({
               ` <ul class="font-bold">${s.name}:</ul>  ${s.stacks
                 .map(
                   (stack) =>
-                    `<li class="text-[hsl(var(--commands))] mx-6 text-sm/8  leading-3">${stack}</li>`
+                    `<li class="text-[hsl(var(--commands))] mx-6 text-sm/8  leading-3 -my-1">${stack}</li>`
                 )
                 .join(' ')}`
           )

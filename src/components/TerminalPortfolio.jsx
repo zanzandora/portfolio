@@ -19,7 +19,7 @@ import getWelcomeMessage from './welcomeMessage';
  */
 
 const MIN_HEIGHT = 300;
-const MAX_HEIGHT = 500;
+const MAX_HEIGHT = 600;
 
 export default function TerminalPortfolio(props) {
   const {
@@ -46,17 +46,17 @@ export default function TerminalPortfolio(props) {
 
   useEffect(() => {
     const checkHeight = () => {
-      if (contentRef.current) {
-        const contentHeight = contentRef.current.scrollHeight;
-        if (contentHeight < MIN_HEIGHT) {
-          setContainerHeight(MIN_HEIGHT);
-          setOverflow('hidden');
-        } else if (contentHeight >= MIN_HEIGHT && contentHeight < MAX_HEIGHT) {
-          setContainerHeight(contentHeight);
-          setOverflow('hidden');
-        } else {
+      if (contentRef.current && terminalRef.current) {
+        const terminalContent = terminalRef.current.terminalRoot.current;
+        const contentHeight = terminalContent.scrollHeight;
+
+        // Kiểm tra nếu nội dung vượt quá chiều cao tối đa
+        if (contentHeight > MAX_HEIGHT) {
           setContainerHeight(MAX_HEIGHT);
-          setOverflow('auto');
+          setOverflow('auto'); // Cho phép scroll khi overflow
+        } else {
+          setContainerHeight(Math.max(contentHeight, MIN_HEIGHT));
+          setOverflow('hidden');
         }
       }
     };
@@ -68,8 +68,8 @@ export default function TerminalPortfolio(props) {
   }, []);
 
   return (
-    <div className='max-w-4xl mx-auto'>
-      <div className='rounded-lg  flex flex-col mt-10 leading-snug transition-all duration-300'>
+    <div className='max-w-4xl mx-auto px-2 sm:px-4 '>
+      <div className='rounded-lg   flex flex-col mt-4 sm:mt-10 leading-snug transition-all duration-300'>
         <div ref={contentRef} className='flex-1 h-full relative'>
           <MacbookWindowHeader
             title='>_ terminal'
@@ -84,8 +84,8 @@ export default function TerminalPortfolio(props) {
             noDefaults={true}
             autoFocus
             styleEchoBack='fullInherit'
-            className='font-mono h-full min-h-[300px] max-h-[500px] pt-12 
-            selection:bg-[hsl(var(--selection-bg))] selection:text-[hsl(var(--selection-text))]'
+            className='font-mono h-full min-h-[300px] max-h-[500px] pt-12 overflow-hidden w-full
+            selection:bg-[hsl(var(--selection-bg))] selection:text-[hsl(var(--selection-text))] text-xs sm:text-base'
             contentStyle={{
               color: 'hsl(var(--commands))',
               fontWeight: 'normal',
