@@ -108,7 +108,7 @@ export default function TerminalPortfolio(props) {
               color: '#e9eae5',
             }}
             promptLabelStyle={{
-              color: 'hsl(var(--primary-welcome))',
+              color: 'hsl(var(--primary))',
             }}
             inputAreaStyle={{
               marginTop: '10px',

@@ -2,11 +2,22 @@ const profileData = {
   name: 'Minh Tú',
   role: 'Full Stack Developer ( NOT YET ==! )',
   skills: [
-    'HTML/CSS',
-    'JavaScript/TypeScript',
-    'React/Next.js',
-    'Node.js/Express',
-    'SQL/NoSQL',
+    {
+      name: 'Web Development',
+      stacks: ['Tailwind CSS', 'React', 'Node.js', 'Express'],
+    },
+    {
+      name: 'Programming Languages',
+      stacks: ['JavaScript', 'TypeScrip', 'Java'],
+    },
+    {
+      name: 'Databases',
+      stacks: ['SQL'],
+    },
+    {
+      name: 'Orthers',
+      stacks: ['Git', 'Postman', 'GitHub'],
+    },
   ],
   projects: [
     {
@@ -25,9 +36,9 @@ const profileData = {
     },
   ],
   contact: {
-    email: 'youremail@example.com',
-    linkedin: 'linkedin.com/in/yourprofile',
-    github: 'github.com/yourusername',
+    email: 'maiminhtu1308@gmail.com',
+    // linkedin: 'linkedin.com/in/yourprofile',
+    github: 'github.com/zanzandora',
   },
 };
 

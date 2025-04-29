@@ -16,7 +16,18 @@ const createCommands = ({
     ski: {
       description: 'Display Skills',
       usage: 'skills',
-      fn: () => skills.map((s) => `- ${s}`).join('\n'),
+      fn: () =>
+        skills
+          .map(
+            (s) =>
+              ` <ul class="font-bold">${s.name}:</ul>  ${s.stacks
+                .map(
+                  (stack) =>
+                    `<li class="text-[hsl(var(--commands))] mx-6 text-sm/8  leading-3">${stack}</li>`
+                )
+                .join(' ')}`
+          )
+          .join('<br>'),
     },
     pro: {
       description: 'Display Projects',
@@ -31,18 +42,18 @@ const createCommands = ({
           p.url
         }" target="_blank"  class="font-bold text-xl text-[hsl(var(--commands))] hover:text-[#8be9fd]">${
                 p.name
-              }</a><br>
-        <span class="text-[hsl(var(--commands)) text-gray-300 mx-[72px] flex -my-5">${
+              }</a>
+        <span class="text-[hsl(var(--commands)) text-gray-300 mx-[72px] flex -my-4 ">${
           p.description || ''
-        }</span><br>
-        <div class= "text-[hsl(var(--commands))] -mt-2">
+        }</span>
+        <div class= "text-[hsl(var(--commands))] mt-2">
         ${p.stack
           .map(
             (tech) =>
               `<span class="text-xs bg-accent/10 px-2 py-1 rounded">${tech}</span>`
           )
           .join(' ')}
-        </div><br>
+        </div>
       </div>  `
             )
             .join('');
@@ -55,10 +66,11 @@ const createCommands = ({
       description: 'Display Contact Informations',
       usage: 'contact',
       fn: () =>
-        `📧 Email: ${contact.email}<br>🔗 LinkedIn: <a href="${contact.linkedin}" target="_blank" rel="noopener noreferrer" style="color:#8be9fd;">${contact.linkedin}</a><br>🐱 GitHub: <a href="${contact.github}" target="_blank" rel="noopener noreferrer" style="color:#8be9fd;">${contact.github}</a>`,
+        `📧 Email: <a href="mailto:${contact.email}" class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.email}</a><br>🔗 LinkedIn: <a href="${contact.linkedin}" target="_blank" rel="noopener noreferrer"  class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.linkedin}</a><br>🐱 GitHub: <a href="https://${contact.github}" target="_blank" rel="noopener noreferrer"  class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.github}</a>`,
     },
     echo: {
-      description: 'Prints the given text to the console ',
+      description:
+        'Prints the given text to the console | echo <<code>string</code>>',
       usage: 'echo <string>',
       fn: (...args) => args.join(' '),
     },

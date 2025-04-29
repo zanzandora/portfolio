@@ -21,7 +21,7 @@
   --muted: 222 14% 26%;
   --commands: 60 30% 96%;
   /* --input: 220 13% 91%; */
-  --primary-welcome: 199 31% 65%;
+  --primary: 199 31% 65%;
   --selection-bg: 199 34% 46%;
   --selection-text: 180 20% 96%;
 }
@@ -31,7 +31,7 @@
   --muted: 60 9% 26%;
   --commands: 60 30% 96%;
   --input: 40 100% 50%;
-  --primary-welcome: 53 51% 61%;
+  --primary: 53 51% 61%;
   --selection-bg: 54 69% 48%;
   --selection-text: 0 0% 6%;
 
@@ -43,7 +43,7 @@
   --muted: 225 14% 28%;
   --commands: 60 30% 96%;
   --input: 40 100% 50%;
-  --primary-welcome: 263 39% 62%;
+  --primary: 263 39% 62%;
   --selection-bg: 264 88% 58%;
   --selection-text: 180 20% 96%;
 }
