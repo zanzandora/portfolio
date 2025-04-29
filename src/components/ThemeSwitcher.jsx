@@ -9,11 +9,13 @@ export default function ThemeSwitcher() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Đọc theme từ localStorage hoặc sử dụng mặc định
     const storedTheme = localStorage.getItem('theme');
-    if (storedTheme && themes.includes(storedTheme)) {
-      setTheme(storedTheme);
-      document.documentElement.setAttribute('data-theme', storedTheme);
-    }
+    const initialTheme = themes.includes(storedTheme) ? storedTheme : 'dracula';
+
+    // Cập nhật state và thiết lập data-theme
+    setTheme(initialTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
     setIsThemeLoaded(true);
   }, []);
 
