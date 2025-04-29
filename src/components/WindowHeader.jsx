@@ -1,8 +1,7 @@
 export default function MacbookWindowHeader({ title = '', className = '' }) {
   return (
     <div
-      className={`sticky top-0 z-20 flex items-center px-4 py-2 backdrop-blur-md bg-base-200/30 border-b border-white/20 rounded-t-lg ${className}`}
-      style={{ userSelect: 'none' }}
+      className={`select-none  z-20 flex items-center px-4 py-2 backdrop-blur-md bg-[hsl(var(--muted)/0.7)]  rounded-t-lg ${className}`}
     >
       <div className='flex space-x-2 mr-4'>
         <span

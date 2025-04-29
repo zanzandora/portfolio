@@ -5,11 +5,11 @@ import LetterGlitch from './components/background/LetterGlitch';
 export default function App() {
   return (
     <>
-      <div className='relative w-screen h-screen overflow-hidden'>
+      <div className='relative w-screen h-screen overflow-hidden bg-[hsl(var(--background))]'>
         {/* LetterGlitch làm background */}
-        <div className='absolute inset-0 z-0 opacity-20'>
+        <div className='absolute inset-0 z-0 opacity-25'>
           <LetterGlitch
-            glitchSpeed={50}
+            glitchSpeed={80}
             centerVignette={false}
             outerVignette={false}
             smooth={true}

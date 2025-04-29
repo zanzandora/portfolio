@@ -8,40 +8,42 @@ const createCommands = ({
 }) => {
   const commands = {
     about: {
-      description: 'Giới thiệu về tôi',
+      description: 'About Me',
       usage: 'about',
-      fn: () => `Xin chào! Tôi là ${name} - ${role}.`,
+      fn: async () =>
+        `<span class='font-bold text-lg/8'>\tHi, I'm ${name} - (${role}).</span> \n\tI'm a 4th year student majoring in software development, with basic knowledge of FE and BE development. Although I do not have much experience, I am always proactive in learning and improving my skills. My goal is to become a professional web developer, participating in creative projects and bringing real value to my work.`,
     },
     ski: {
-      description: 'Xem kỹ năng lập trình',
+      description: 'Display Skills',
       usage: 'skills',
       fn: () => skills.map((s) => `- ${s}`).join('\n'),
     },
     pro: {
-      description: 'Xem danh sách dự án',
+      description: 'Display Projects',
       usage: 'projects',
       fn: () => {
         if (projects.length > 0 && typeof projects[0] === 'object') {
           return projects
             .map(
               (p, i) => `
-      <div class="mt-2">
-        <span class="${p.icon ? '' : 'hidden'} text-xl">${
-                p.icon ? p.icon : ''
-              }</span>
-        <span class="font-bold text-[#8be9fd]">${p.name}</span><br>
-        <span class="text-[#bfbfbf]">- ${p.description || ''}</span><br>
-        <span class="text-[#bfbfbf]">- Stack: ${
-          Array.isArray(p.stack) ? p.stack.join(', ') : p.stack || ''
-        }</span><br>
-        <span class="text-[#bfbfbf]">- Link: <a href="${
+      <div class="-my-2">
+        <a href="${
           p.url
-        }" target="_blank" rel="noopener noreferrer" class="text-[#8be9fd] underline">${
-                p.url
-              }</a></span>
-      </div>
-
-              `
+        }" target="_blank"  class="font-bold text-xl text-[hsl(var(--commands))] hover:text-[#8be9fd]">${
+                p.name
+              }</a><br>
+        <span class="text-[hsl(var(--commands)) text-gray-300 mx-[72px] flex -my-5">${
+          p.description || ''
+        }</span><br>
+        <div class= "text-[hsl(var(--commands))] -mt-2">
+        ${p.stack
+          .map(
+            (tech) =>
+              `<span class="text-xs bg-accent/10 px-2 py-1 rounded">${tech}</span>`
+          )
+          .join(' ')}
+        </div><br>
+      </div>  `
             )
             .join('');
         }
@@ -50,19 +52,19 @@ const createCommands = ({
       },
     },
     con: {
-      description: 'Thông tin liên hệ',
+      description: 'Display Contact Informations',
       usage: 'contact',
       fn: () =>
         `📧 Email: ${contact.email}<br>🔗 LinkedIn: <a href="${contact.linkedin}" target="_blank" rel="noopener noreferrer" style="color:#8be9fd;">${contact.linkedin}</a><br>🐱 GitHub: <a href="${contact.github}" target="_blank" rel="noopener noreferrer" style="color:#8be9fd;">${contact.github}</a>`,
     },
     echo: {
-      description: 'Echo một chuỗi truyền vào.',
+      description: 'Prints the given text to the console ',
       usage: 'echo <string>',
       fn: (...args) => args.join(' '),
     },
 
     clear: {
-      description: 'Xóa màn hình terminal',
+      description: 'Clear the Terminal',
       usage: 'clear',
       fn: () => terminalRef.current.clearStdout(),
     },
@@ -70,7 +72,7 @@ const createCommands = ({
 
   // Thêm lệnh help sau khi có đủ commands
   commands.help = {
-    description: 'Hiển thị các lệnh khả dụng',
+    description: 'Show Available Commands',
     usage: 'help',
     fn: () =>
       Object.entries(commands)

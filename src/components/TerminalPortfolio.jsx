@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Terminal from 'react-console-emulator';
-import profileData from './profileData';
+import profileData from '../lib/mockdata';
 import createCommands from './Commands/Commands';
 import MacbookWindowHeader from './WindowHeader';
-// import ThemeSwitcher from './ThemeSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
+import getWelcomeMessage from './welcomeMessage';
 
 /**
  * TerminalPortfolio
@@ -66,38 +67,27 @@ export default function TerminalPortfolio(props) {
     return () => clearInterval(interval);
   }, []);
 
-  const customWelcomeMessage = [
-    <div style={{ color: '#ff0000', fontWeight: 'bold' }} key='ascii-art'>
-      {`██╗      █████╗ ███████╗██╗   ██╗    ██████╗  ██████╗ ██╗███████╗
-██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝    ██╔══██╗██╔═══██╗██║╚══███╔╝
-██║     ███████║  ███╔╝  ╚████╔╝     ██████╔╝██║   ██║██║  ███╔╝ 
-██║     ██╔══██║ ███╔╝    ╚██╔╝      ██╔══██╗██║   ██║██║ ███╔╝  
-███████╗██║  ██║███████╗   ██║       ██████╔╝╚██████╔╝██║███████╗
-╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝  ╚═════╝ ╚═╝╚══════╝`}
-    </div>,
-    <div className=' text-primary mt-5' key='welcome-text'>
-      Welcome to {name}'s Terminal Portfolio 🚀
-    </div>,
-    <div className='text-warning' key='help-text'>
-      Gõ "help" để xem các lệnh có sẵn!
-    </div>,
-  ];
-
   return (
     <div className='max-w-4xl mx-auto'>
-      <div className='rounded-lg shadow-lg flex flex-col mt-10 leading-snug transition-all duration-300'>
-        <MacbookWindowHeader title='>_ terminal' />
-        <div ref={contentRef} className='flex-1 h-full'>
+      <div className='rounded-lg  flex flex-col mt-10 leading-snug transition-all duration-300'>
+        <div ref={contentRef} className='flex-1 h-full relative'>
+          <MacbookWindowHeader
+            title='>_ terminal'
+            className=' absolute w-full'
+          />
           <Terminal
             ref={terminalRef}
             commands={commands}
-            welcomeMessage={customWelcomeMessage}
+            welcomeMessage={getWelcomeMessage(name)}
             promptLabel='user@portfolio:~$'
             dangerMode={true}
             noDefaults={true}
-            className='font-mono h-full min-h-[300px] max-h-[500px] pt-12 '
+            autoFocus
+            styleEchoBack='fullInherit'
+            className='font-mono h-full min-h-[300px] max-h-[500px] pt-12 
+            selection:bg-[hsl(var(--selection-bg))] selection:text-[hsl(var(--selection-text))]'
             contentStyle={{
-              color: '#e9eae5',
+              color: 'hsl(var(--commands))',
               fontWeight: 'normal',
               paddingLeft: null,
               whiteSpace: 'pre-wrap',
@@ -108,14 +98,24 @@ export default function TerminalPortfolio(props) {
             style={{
               minHeight: `${MIN_HEIGHT}px`,
               maxHeight: `${MAX_HEIGHT}px`,
-              overflowY: overflow,
-              backgroundColor: '#262833',
+              overflow: overflow,
+              backgroundColor: 'hsl(var(--background))',
+              border: '1.5px solid hsl(var(--muted))',
+              borderRadius: '0.75rem',
             }}
             inputStyle={{
               height: '30px',
+              color: '#e9eae5',
+            }}
+            promptLabelStyle={{
+              color: 'hsl(var(--primary-welcome))',
+            }}
+            inputAreaStyle={{
+              marginTop: '10px',
             }}
             inputTextClassName='focus:outline-none bg-transparent'
           />
+          <ThemeSwitcher />
         </div>
       </div>
     </div>

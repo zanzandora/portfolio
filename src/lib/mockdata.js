@@ -1,5 +1,5 @@
 const profileData = {
-  name: 'Mai Minh Tú',
+  name: 'Minh Tú',
   role: 'Full Stack Developer ( NOT YET ==! )',
   skills: [
     'HTML/CSS',
@@ -10,14 +10,13 @@ const profileData = {
   ],
   projects: [
     {
-      icon: '🌐',
       name: 'Portfolio Website',
-      description: 'Website cá nhân giới thiệu bản thân và các dự án nổi bật.',
-      stack: ['React', 'Next.js', 'TailwindCSS'],
+      description:
+        'A command-line (CLI) style terminal portfolio, built with React and deeply customized with react-console-emulator, to create a unique interactive experience for employers and the developer community.',
+      stack: ['React', 'TailwindCSS', 'react-console-emulator'],
       url: 'https://example.com',
     },
     {
-      icon: '📱',
       name: 'Awesome App',
       description:
         'Ứng dụng quản lý công việc đa nền tảng với tính năng realtime.',
