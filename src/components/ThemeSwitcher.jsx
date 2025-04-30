@@ -47,11 +47,14 @@ export default function ThemeSwitcher() {
     <div className='fixed bottom-5 right-5 z-10' ref={containerRef}>
       <div className=' flex gap-4 items-center   shadow-lg p-2'>
         <button
-          className='p-2  text-white rounded-full btn bg-background border focus:bg-[hsl(var(--muted))]   transition-colors'
+          className='appearance-none focus:outline-none focus:ring-0 active:bg-transparent 
+             p-2 text-white rounded-full btn bg-[hsl(var(--background))] 
+             border focus:bg-[hsl(var(--muted))] transition-colors'
           onClick={handleToggleSelector}
         >
           THEME
         </button>
+
         {showSelector && (
           <div className='absolute  bottom-full right-0 mb-2 p-2  bg-[hsl(var(--background))]  rounded-sm bg-background border-white border shadow-lg min-w-[200px]'>
             {themes.map((themeName) => (
