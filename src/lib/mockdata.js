@@ -28,11 +28,18 @@ const profileData = {
       url: 'https://example.com',
     },
     {
-      name: 'Awesome App',
+      name: 'English Master Website',
       description:
-        'Ứng dụng quản lý công việc đa nền tảng với tính năng realtime.',
-      stack: ['React Native', 'Node.js', 'Socket.io'],
+        'The English center management system is a platform that supports the management and operation of center activities. The system helps automate processes, increase management efficiency and support interactions between users.',
+      stack: ['React', 'TailwindCSS', 'Node.js', 'Express.js', 'MySQL'],
       url: 'https://example.com',
+    },
+    {
+      name: 'My Blog',
+      description:
+        'Personal blog sharing knowledge, experience and practical perspectives in the field of programming and technology, supporting learning, skill development and community connection. Website is using Clerk to handle user authentication and ImageKit for cloud media storage.',
+      stack: ['MERN', 'TailwindCSS'],
+      url: 'https://github.com/zanzandora/Blog',
     },
   ],
   contact: {
