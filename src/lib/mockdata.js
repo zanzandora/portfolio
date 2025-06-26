@@ -4,19 +4,23 @@ const profileData = {
   skills: [
     {
       name: 'Web Development',
-      stacks: ['Tailwind CSS', 'React', 'Node.js', 'Express'],
+      stacks: ['Tailwind CSS', 'React', 'NextJS', 'Node.js', 'Express'],
     },
     {
       name: 'Programming Languages',
-      stacks: ['JavaScript', 'TypeScrip', 'Java'],
+      stacks: ['JavaScript', 'TypeScrip', 'PHP', 'Java(basic)', 'C++(basic)'],
     },
     {
       name: 'Databases',
-      stacks: ['SQL'],
+      stacks: ['MySQL', 'Mongo'],
     },
     {
-      name: 'Orthers',
+      name: 'Tools',
       stacks: ['Git', 'Postman', 'GitHub'],
+    },
+    {
+      name: 'Others',
+      stacks: ['RESTful API', 'JWT', 'MVC Pattern', 'NPM'],
     },
   ],
   projects: [
@@ -38,13 +42,28 @@ const profileData = {
       name: 'My Blog',
       description:
         'Personal blog sharing knowledge, experience and practical perspectives in the field of programming and technology, supporting learning, skill development and community connection. Website is using Clerk to handle user authentication and ImageKit for cloud media storage.',
-      stack: ['MERN', 'TailwindCSS'],
-      url: 'https://github.com/zanzandora/Blog',
+      stack: ['MERN', 'TailwindCSS', 'Socket.io', 'Clerk', 'ImageKit'],
+      url: 'https://blog-nine-beta-59.vercel.app/',
+    },
+    {
+      name: 'Chatzy',
+      description:
+        'Chatzy is a platform that connects language learners around the world to chat and practice via text or voice call in real time. The app aims to provide an active language learning experience by pairing users based on the language they want to learn and the language they are proficient in.',
+      stack: [
+        'MERN',
+        'TailwindCss',
+        'getStream.io',
+        'Socket.io',
+        'JWT',
+        'TanStack Query',
+      ],
+      url: 'https://blog-nine-beta-59.vercel.app/',
     },
   ],
   contact: {
     email: 'maiminhtu1308@gmail.com',
-    // linkedin: 'linkedin.com/in/yourprofile',
+    phone: '0797860803',
+    locate: 'HaNoi, VietNam',
     github: 'github.com/zanzandora',
   },
 };

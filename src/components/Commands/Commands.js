@@ -11,7 +11,7 @@ const createCommands = ({
       description: 'About Me',
       usage: 'about',
       fn: async () =>
-        `<span class='font-bold text-lg/8'>\tHi, I'm ${name} - (${role}).</span> \n\tI'm a 4th year student majoring in software development, with basic knowledge of FE and BE development. Although I do not have much experience, I am always proactive in learning and improving my skills. My goal is to become a professional web developer, participating in creative projects and bringing real value to my work.`,
+        `<span class='font-bold text-lg/8'>\tHi, I'm ${name} - (${role}).</span> \n\tI'm a recent graduate majoring in software development, with basic knowledge of FE and BE development. Although I do not have much experience, I am always proactive in learning and improving my skills. My goal is to become a professional web developer, participating in creative projects and bringing real value to my work.`,
     },
     ski: {
       description: 'Display Skills',
@@ -42,7 +42,7 @@ const createCommands = ({
           p.url
         }" target="_blank"  class="font-bold text-xl text-[hsl(var(--commands))] hover:text-[#8be9fd]">${
                 p.name
-              }</a>
+              } 🔗</a>
         <span class="text-[hsl(var(--commands)) text-gray-300 mx-[72px] flex -my-4 ">${
           p.description || ''
         }</span>
@@ -66,7 +66,12 @@ const createCommands = ({
       description: 'Display Contact Informations',
       usage: 'contact',
       fn: () =>
-        `📧 Email: <a href="mailto:${contact.email}" class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.email}</a><br>🔗 LinkedIn: <a href="${contact.linkedin}" target="_blank" rel="noopener noreferrer"  class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.linkedin}</a><br>🐱 GitHub: <a href="https://${contact.github}" target="_blank" rel="noopener noreferrer"  class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.github}</a>`,
+        `
+      📧 Email: <a href="mailto:${contact.email}" class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.email}</a>
+      🔗 LinkedIn: <a href="${contact.linkedin}" target="_blank" rel="noopener noreferrer"  class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.linkedin}</a>
+      🐱 GitHub: <a href="https://${contact.github}" target="_blank" rel="noopener noreferrer"  class=" text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.github}</a>
+      📱 Phone: <a href="tel:${contact.phone}" class="text-[hsl(var(--commands))] hover:text-[#8be9fd]">${contact.phone}</a>
+      📍 Location: <span class="text-[hsl(var(--commands))]">${contact.locate}</span>`,
     },
     echo: {
       description:
